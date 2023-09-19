@@ -1,0 +1,130 @@
+{
+  "info": {
+    "title": "FTP引擎",
+    "description": "可以连接FTP服务器交换文件",
+    "x-component-ver": "1.0.0",
+    "x-component-id": "eg_cb7e_ftp_plugin"
+  },
+  "config": {
+    "type": "object",
+    "properties": {
+      "binary": {
+        "type": "boolean",
+        "title": "是否是二进制文件传输",
+        "default": true
+      },
+      "directory": {
+        "type": "string",
+        "title": "远程目录",
+        "description": "限制所有远程FTP操作都在此目录下进行",
+        "default": "/xuanwu"
+      },
+      "encoding": {
+        "type": "string",
+        "title": "文件编码"
+      },
+      "hostname": {
+        "type": "string",
+        "title": "主机名"
+      },
+      "passiveMode": {
+        "type": "boolean",
+        "title": "启用被动模式",
+        "default": true
+      },
+      "password": {
+        "type": "string",
+        "title": "密码"
+      },
+      "port": {
+        "type": "integer",
+        "title": "端口",
+        "default": 21
+      },
+      "protocol": {
+        "type": "string",
+        "title": "协议",
+        "default": "ftp"
+      },
+      "username": {
+        "type": "string",
+        "title": "用户名"
+      },
+      "workspace": {
+        "type": "string",
+        "title": "本地目录",
+        "description": "限制所有本地文件操作都在此目录下进行",
+        "default": "/opt/xuanwu/web"
+      }
+    },
+    "title": "FTP服务配置"
+  },
+  "executor": {
+    "x-executor-id": "eg_cb7e_ftp_plugin",
+    "x-origin-ver": "1.0.0",
+    "x-executor-group": "文件传输"
+  },
+  "actions": [
+    {
+      "description": "将FTP上指定文件下载到本地磁盘",
+      "summary": "下载文件",
+      "x-action-id": "DownloadAction",
+      "operationId": "eg_cb7e_download_action",
+      "in": {
+        "type": "object",
+        "properties": {
+          "ftpPath": {
+            "type": "string",
+            "title": "FTP文件路径",
+            "description": "包含文件名，可以只用排除限定目录后的相对路径，不以/开头"
+          },
+          "path": {
+            "type": "string",
+            "title": "本地文件路径",
+            "description": "保存本地的文件路径，文件名将随机生成"
+          }
+        },
+        "title": "下载FTP文件输入参数"
+      },
+      "out": {
+        "type": "object",
+        "properties": {
+          "path": {
+            "type": "string",
+            "title": "本地文件路径"
+          }
+        },
+        "title": "FTP文件下载输出结果"
+      }
+    },
+    {
+      "description": "将本地磁盘文件上传到指定FTP路径",
+      "summary": "上传文件",
+      "x-action-id": "UploadAction",
+      "operationId": "eg_cb7e_upload_action",
+      "in": {
+        "type": "object",
+        "properties": {
+          "ftpPath": {
+            "type": "string",
+            "title": "FTP文件路径"
+          },
+          "path": {
+            "type": "string",
+            "title": "上传文件磁盘路径"
+          }
+        },
+        "title": "FTP上传文件输入配置"
+      },
+      "out": {
+        "type": "object",
+        "properties": {
+          "path": {
+            "type": "string",
+            "title": "FTP文件路径"
+          }
+        }
+      }
+    }
+  ]
+}

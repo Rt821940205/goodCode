@@ -1,0 +1,37 @@
+.component-title{
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  color: #666666;
+  margin-bottom: 16px;
+  display: flex;
+  .component-img{
+    display: flex;
+    align-items: center;
+    img{
+      width: 16px;
+      height: 16px;
+      margin-right: 6px;
+      object-fit: cover;
+    }
+  }
+}
+
+
+.component-search{
+  margin-bottom: 16px;
+  display: flex;
+  .search-input{
+    // width: 320px;
+    // margin-right: 16px;
+  }
+  .search-btn{
+    display: flex;
+    :global{
+      .ant-btn + .ant-btn{
+        margin-left: 16px;
+      }
+    }
+  }
+}
+

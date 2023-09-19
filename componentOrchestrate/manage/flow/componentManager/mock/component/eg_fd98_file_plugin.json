@@ -1,0 +1,359 @@
+{
+  "info": {
+    "title": "文件组件",
+    "description": "对上传文件和磁盘文件进行读取和保存",
+    "x-component-ver": "1.0.0",
+    "x-component-id": "eg_fd98_file_plugin"
+  },
+  "config": {
+    "type": "object",
+    "properties": {
+      "accept": {
+        "type": "string",
+        "title": "允许上传的文件格式",
+        "description": "如果不提供，则表示可以上传全部"
+      },
+      "baseDir": {
+        "type": "string",
+        "title": "基础路径",
+        "description": "基础路径/相对路径/日期路径？/文件名",
+        "default": "/opt/xuanwu/web"
+      },
+      "httpUriPrefix": {
+        "type": "string",
+        "title": "前端文件资源HTTP URL前缀",
+        "description": "最终的前端文件URL可能为${httpUriPrefix}/${uploadDir}/${fileName}"
+      },
+      "maxSize": {
+        "type": "integer",
+        "title": "上传文件大小限制",
+        "description": "单位：B，超过此大小的文件将不会被保存",
+        "default": 10485760
+      },
+      "uploadDir": {
+        "type": "string",
+        "title": "保存相对路径",
+        "description": "该路径将暴露到文件Uri中",
+        "default": "upload"
+      },
+      "withMd5": {
+        "type": "boolean",
+        "title": "是否带MD5",
+        "description": "如果选择true，则计算Md5值",
+        "default": true
+      },
+      "withYmdPath": {
+        "type": "boolean",
+        "title": "路径是否含时间",
+        "description": "如果选true，文件存储路径将自动带上日期",
+        "default": true
+      }
+    },
+    "title": "文件引擎配置"
+  },
+  "executor": {
+    "x-executor-id": "eg_fd98_file_plugin",
+    "x-origin-ver": "1.0.0",
+    "x-executor-group": "文件传输"
+  },
+  "actions": [
+    {
+      "description": "将任意文件内容保存至磁盘，并返回文件Path",
+      "summary": "保存文件",
+      "x-action-id": "SaveAction",
+      "operationId": "eg_fd98_save_action",
+      "in": {
+        "type": "object",
+        "properties": {
+          "content": {
+            "title": "文件内容",
+            "description": "可以是文件流也可以文本内容等"
+          },
+          "name": {
+            "type": "string",
+            "title": "文件名"
+          },
+          "suffix": {
+            "type": "string",
+            "title": "后缀名"
+          }
+        },
+        "title": "文件保存输入参数"
+      },
+      "out": {
+        "type": "object",
+        "properties": {
+          "file": {
+            "title": "文件实体"
+          },
+          "path": {
+            "type": "string",
+            "title": "文件保存的路径"
+          },
+          "size": {
+            "type": "integer",
+            "title": "文件大小",
+            "default": 0
+          },
+          "uri": {
+            "type": "string",
+            "title": "相对资源路径"
+          }
+        },
+        "title": "文件保存结果"
+      }
+    },
+    {
+      "description": "将上传的文件流保存到磁盘，并将文件信息存入文件数据表，最终返回文件相关信息",
+      "summary": "上传文件保存",
+      "x-action-id": "UploadAction",
+      "operationId": "engineUpload",
+      "x-storage": true,
+      "in": {
+        "type": "object",
+        "properties": {
+          "file": {
+            "type": "object",
+            "title": "上传文件"
+          },
+          "name": {
+            "type": "string",
+            "title": "名称",
+            "description": "备注名称，仅特殊场景有效，如文件备注，如上传导入数据表时数据表备注"
+          }
+        },
+        "title": "上传文件输入参数"
+      },
+      "out": {
+        "type": "object",
+        "properties": {
+          "absPath": {
+            "type": "string",
+            "title": "路径"
+          },
+          "contentType": {
+            "type": "string",
+            "title": "文件类型"
+          },
+          "fileName": {
+            "type": "string",
+            "title": "文件原名"
+          },
+          "md5": {
+            "type": "string",
+            "title": "文件MD5"
+          },
+          "name": {
+            "type": "string",
+            "title": "备注名"
+          },
+          "newName": {
+            "type": "string",
+            "title": "文件保存名"
+          },
+          "path": {
+            "type": "string",
+            "title": "保存路径"
+          },
+          "size": {
+            "type": "integer",
+            "title": "文件大小",
+            "default": 0
+          },
+          "suffix": {
+            "type": "string",
+            "title": "文件扩展名"
+          },
+          "uri": {
+            "type": "string",
+            "title": "相对资源路径"
+          },
+          "url": {
+            "type": "string",
+            "title": "绝对对资源路径"
+          }
+        },
+        "title": "上传文件信息"
+      }
+    },
+    {
+      "description": "将磁盘文件路径转为文本内容",
+      "summary": "读取文本文件",
+      "x-action-id": "TextAction",
+      "operationId": "eg_fd98_text_action",
+      "in": {
+        "type": "object",
+        "properties": {
+          "charset": {
+            "type": "string",
+            "title": "文件编码",
+            "default": "utf-8"
+          },
+          "dir": {
+            "type": "string",
+            "title": "文件夹"
+          },
+          "name": {
+            "type": "string",
+            "title": "文件名"
+          }
+        },
+        "title": "读取文本文件输入参数"
+      },
+      "out": {
+        "type": "object",
+        "properties": {
+          "content": {
+            "type": "string",
+            "title": "文件文本内容"
+          },
+          "size": {
+            "type": "integer",
+            "title": "内容大小",
+            "default": 0
+          }
+        },
+        "title": "文本文件读取结果"
+      }
+    },
+    {
+      "description": "将磁盘文件路径转为文件对象",
+      "summary": "读取文件",
+      "x-action-id": "ReadAction",
+      "operationId": "eg_fd98_read_action",
+      "in": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "title": "文件名"
+          }
+        },
+        "title": "读取文件输入参数"
+      },
+      "out": {
+        "type": "object",
+        "properties": {
+          "file": {
+            "title": "文件实体"
+          },
+          "path": {
+            "type": "string",
+            "title": "文件保存的路径"
+          },
+          "size": {
+            "type": "integer",
+            "title": "文件大小",
+            "default": 0
+          },
+          "uri": {
+            "type": "string",
+            "title": "相对资源路径"
+          }
+        },
+        "title": "文件保存结果"
+      }
+    },
+    {
+      "summary": "提供文件下载",
+      "x-action-id": "DownloadAction",
+      "operationId": "eg_fd98_download_action",
+      "in": {
+        "type": "object",
+        "properties": {
+          "contentType": {
+            "type": "string",
+            "title": "文件类型"
+          },
+          "fileName": {
+            "type": "string",
+            "title": "下载文件名"
+          },
+          "path": {
+            "type": "string",
+            "title": "文件路径"
+          }
+        },
+        "title": "下载文件入参"
+      },
+      "out": {
+        "type": "object",
+        "properties": {
+          "contentType": {
+            "type": "string",
+            "title": "文件头"
+          },
+          "fileName": {
+            "type": "string",
+            "title": "文件名"
+          },
+          "path": {
+            "type": "string",
+            "title": "文件磁盘地址"
+          }
+        },
+        "title": "下载输出"
+      }
+    },
+    {
+      "description": "查找到符合条件文件路径输出List<String>",
+      "summary": "简单查找文件",
+      "x-action-id": "FindAction",
+      "operationId": "eg_fd98_find_action",
+      "in": {
+        "type": "object",
+        "properties": {
+          "enableRegex": {
+            "type": "boolean",
+            "title": "启用正则匹配",
+            "description": "开始正则匹配后，将对key进行正则处理",
+            "default": false
+          },
+          "key": {
+            "type": "string",
+            "title": "文件名关键词",
+            "description": "将查找文件名中含有该名称的文件"
+          },
+          "source": {
+            "type": "string",
+            "title": "搜索源目录",
+            "description": "查找目录，暂只限本级"
+          }
+        },
+        "title": "查找文件输入参数"
+      },
+      "out": {
+        "type": "object",
+        "properties": {
+          "count": {
+            "type": "integer",
+            "title": "数量"
+          },
+          "data": {
+            "title": "数据"
+          },
+          "meta": {
+            "title": "元数据",
+            "readOnly": true
+          },
+          "msg": {
+            "type": "string",
+            "title": "消息",
+            "default": "成功"
+          },
+          "status": {
+            "type": "integer",
+            "title": "状态码",
+            "default": 0
+          },
+          "success": {
+            "type": "boolean",
+            "title": "是否成功",
+            "default": true
+          }
+        },
+        "title": "元数据结果输出"
+      }
+    }
+  ]
+}

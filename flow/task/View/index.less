@@ -1,0 +1,43 @@
+// .antd-Page
+@import '../../../../styles/mixin/methods.less';
+@import '../../../../styles/mixin/font.less';
+@import '../../../../styles/validator.less';
+@import '../../../../styles/tools.less';
+
+.flow-task-view {
+  height: calc(100vh - 130px);
+
+  .log-list {
+    table {
+      border: 0 !important;
+    }
+
+    td {
+      border: 0 !important;
+    }
+  }
+
+  .antd-Page-body {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+
+    .antd-Panel {
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+      margin-bottom: 0;
+
+      .antd-Panel-body {
+        flex: 1;
+        margin-top: 20px;
+      }
+
+      .antd-Panel-footerWrap {
+        .antd-Panel-btnToolbar {
+          text-align: left;
+        }
+      }
+    }
+  }
+}

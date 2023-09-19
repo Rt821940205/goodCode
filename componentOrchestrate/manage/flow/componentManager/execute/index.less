@@ -1,0 +1,135 @@
+// .drawer-common
+.execute {
+  top: 60px;
+  :global {
+    .ant-drawer-content-wrapper {
+      width: 504px !important;
+    }
+    .ant-drawer-body {
+      padding: 0;
+      display: flex;
+    }
+  }
+
+
+  .drawer-wrapper{
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    margin-bottom: 64px;
+  }
+  .title {
+    padding: 16px 24px;
+    color: #333333;
+    font-weight: 400;
+    font-size: 16px;
+    background: #f3f3f3;
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    overflow: hidden;
+    .content-form{
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      overflow: auto;
+      padding: 0 16px;
+    }
+    .sub-title {
+      padding: 16px;
+      font-weight: 400;
+      font-size: 14px;
+      .red {
+        color: red;
+      }
+    }
+    .chunk-wrapper{
+      .add-or {
+        display: none;
+      }
+      .or {
+        display: flex;
+        flex-direction: column;
+        span.line{
+          margin-left: 10px;
+          border-left: 1px dashed #999999;
+          width: 0;
+          height: 20px;
+        }
+      }
+      .no-or {
+        display: none;
+      }
+      .chunk-also {
+        .chunk-box{
+          .chunk {
+            padding: 16px 0;
+            background: #f3f3f3;
+            .add-also {
+              display: none;
+            }
+
+            .delete-icon{
+              display: flex;
+              justify-content: flex-end;
+              margin-right: 16px;
+              padding: 8px;
+            }
+          }
+          
+          .interval {
+            position: relative;
+            border: 1px dashed #999999;
+            span {
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              padding: 0 8px;
+              background: #f3f3f3;
+              transform: translate(-50%, -50%);
+            }
+          }
+          .no-interval {
+            display: none;
+          }
+        }
+        .chunk-box:last-child{
+          .chunk {
+            .add-also {
+              display: block;
+            }
+          }
+        }
+      }
+    }
+
+    .chunk-wrapper:last-child{
+      .add-or {
+        display: block;
+      }
+    }
+    
+
+    // .chunk + .chunk{
+    //   .interval{
+    //     border: 1px dashed #999999;
+    //   }
+    // }
+  }
+
+  .footer{
+    width: 504px;
+    height: 64px;
+    background: #FFFFFF;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    border-top: 1px solid #E7E7E7;
+    position: absolute;
+    bottom: 0;
+    padding-right: 24px;
+  }
+}

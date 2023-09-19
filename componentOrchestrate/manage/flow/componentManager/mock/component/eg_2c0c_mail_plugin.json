@@ -1,0 +1,106 @@
+{
+  "info": {
+    "title": "邮件引擎",
+    "description": "提供简单的邮件收发功能",
+    "x-component-ver": "1.0.0",
+    "x-component-id": "eg_2c0c_mail_plugin"
+  },
+  "config": {
+    "type": "object",
+    "properties": {
+      "contentType": {
+        "type": "string",
+        "title": "邮件格式",
+        "default": "text/plain"
+      },
+      "defaultEncoding": {
+        "type": "string",
+        "title": "邮箱编码",
+        "default": "utf-8"
+      },
+      "from": {
+        "type": "string",
+        "title": "发件人",
+        "description": "发件人邮箱地址"
+      },
+      "host": {
+        "type": "string",
+        "title": "邮件服务器"
+      },
+      "password": {
+        "type": "string",
+        "title": "密码"
+      },
+      "port": {
+        "type": "integer",
+        "title": "服务器端口",
+        "default": 0
+      },
+      "protocol": {
+        "type": "string",
+        "title": "邮件协议",
+        "description": "如果是SSL，须在协议后面加s，如smtp为smtps",
+        "default": "smtp"
+      },
+      "testEmail": {
+        "type": "string",
+        "title": "测试配置邮箱",
+        "description": "测试配置时将向此邮箱发送一封邮件，如果失败将收不到",
+        "default": ""
+      },
+      "username": {
+        "type": "string",
+        "title": "用户名"
+      }
+    },
+    "title": "组件配置"
+  },
+  "executor": {
+    "x-executor-id": "eg_2c0c_mail_plugin",
+    "x-origin-ver": "1.0.0",
+    "x-executor-group": "网络交互"
+  },
+  "actions": [
+    {
+      "description": "提供简单的邮件发送功能",
+      "summary": "发邮件",
+      "x-action-id": "SendAction",
+      "operationId": "eg_2c0c_send_action",
+      "in": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "type": "string",
+            "title": "邮件内容"
+          },
+          "subject": {
+            "type": "string",
+            "title": "邮件标题"
+          },
+          "to": {
+            "type": "string",
+            "title": "收件人"
+          }
+        },
+        "title": "发送邮件 入参"
+      },
+      "out": {
+        "type": "object",
+        "properties": {
+          "msg": {
+            "type": "string",
+            "title": "消息",
+            "description": "如果成功消息为sucess，如果失败，则是失败相关消息",
+            "default": "success"
+          },
+          "success": {
+            "type": "boolean",
+            "title": "发送是否成功",
+            "default": false
+          }
+        },
+        "title": "发送邮件结果"
+      }
+    }
+  ]
+}

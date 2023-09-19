@@ -1,0 +1,46 @@
+
+
+
+@top-line-width:106px;
+@top-line-gap:24px;
+.condition-node-wrapper{
+  width: 499px;
+  box-sizing: border-box;
+}
+
+
+.condition-line-wrapper{
+  border-left: 1px dashed #333;
+  margin-left: 34px;
+  position: relative;
+}
+.condition-line-top{
+  border-top: 1px dashed #333;
+  position: absolute;
+  width: @top-line-width;
+  top: @top-line-gap;
+}
+.condition-line-bottom{
+  border-top: 1px dashed #333;
+  position: absolute;
+  width: @top-line-width;
+  bottom: 0;
+}
+.condition-line-tr-content{
+  margin-left: @top-line-width - 35px;
+  padding-top: @top-line-gap;
+}
+.condition-top-label{
+  position: absolute;
+  left: @top-line-width/2;
+  transform: translate(-50%,-50%);
+  background: #c9def2;
+}
+.condition-left-label{
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  background: #c9def2;
+}
+

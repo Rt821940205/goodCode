@@ -1,0 +1,47 @@
+@import '../../../styles/validator.less';
+.task-wrapper-rencj {
+  background: rgba(48, 92, 208, 0.05);
+  border-radius: 2px;
+  font-size: 14px;
+  color: @default-color;
+  margin: 12px 0;
+  line-height: 35px;
+  padding: 0 16px;
+  cursor: pointer;
+  user-select: none;
+  &:hover {
+    background: rgba(48, 92, 208, 0.1);
+    color: @primary-color;
+  }
+}
+.task-createTime {
+  color: #999;
+  margin-right: 24px;
+}
+.upcomming-action {
+  display: block;
+}
+
+
+.no-task-wrapper {
+  height: 100%;
+}
+.no-task {
+  background: url('../../../assets/images/noTask.png');
+  background-size: 100% 100%;
+  width: 100px;
+  height: 100px;
+}
+.short-task-service {
+  height: calc(100% - 40px);
+}
+.long-task-service {
+  height: calc(100% - 140px);
+}
+.no-task-label {
+  font-size: 14px;
+  color: #666;
+  margin-top: 24px;
+  text-align: center;
+  user-select: none;
+}

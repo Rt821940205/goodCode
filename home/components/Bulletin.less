@@ -1,0 +1,43 @@
+@import '../../../styles/validator.less';
+@import '../../../styles/tools.less';
+.bulletin-wrapper {
+  font-size: 14px;
+  color: @default-color;
+  cursor: pointer;
+  user-select: none;
+  &:hover {
+    color: @primary-color;
+  }
+}
+
+.bul-createTime {
+  color: #999;
+}
+
+
+.bulletin-action {
+  background: rgba(48, 92, 208, 0.05);
+  border-radius: 2px;
+  display: block;
+  margin-top: 16px;
+  padding: 6px;
+  &:hover{
+    background: #EBEFFB;
+  }
+}
+.no-bulletin-wrapper {
+  height: 100%;
+}
+.no-bulletin {
+  background: url('../../../assets/images/noBulletin.png');
+  background-size: 100% 100%;
+  width: 100px;
+  height: 100px;
+}
+.no-bulletin-label {
+  font-size: 14px;
+  color: #666;
+  margin-top: 24px;
+  text-align: center;
+  user-select: none;
+}

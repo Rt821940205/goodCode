@@ -1,0 +1,77 @@
+.flow-wrapper{
+  display: flex;
+  position: relative;
+  ::-webkit-scrollbar{
+    display: none;
+  }
+}
+.flow-name-wrapper{
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 60px;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  color: #333;
+  z-index: 2;
+  padding-left: 20px;
+}
+.flow-name{
+  margin: 0 10px;
+}
+.apiTest{
+  position: absolute;
+  right: 10px;
+  top:10px;
+}
+.flow-canvas{
+  flex: 1;
+  height: calc(100vh - 60px);
+  padding-top: 60px;
+  display: flex;
+  flex-direction: column;
+
+}
+.flow-canvas-inner{
+  flex:1;
+  padding:53px 0 0 82px;
+  overflow: auto;
+}
+.footer{
+  height: 56px;
+  display: flex;
+  align-items: center;
+  flex-direction: row-reverse;
+  padding:0 16px;
+}
+.config{
+  font-size: 39px;
+  margin-right: 8px;
+  cursor: pointer;
+}
+.zoom{
+  display: flex;
+}
+.zoom-item{
+  padding: 0 10px;
+  color: #666;
+  font-size: 18px;
+  height: 39px;
+  display: flex;
+  align-items: center;
+}
+.zoom-count{
+  width: 50px;
+  height: 39px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0;
+  box-sizing: border-box;
+  color: #999;
+  font-size: 16px;
+}

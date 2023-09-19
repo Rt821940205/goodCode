@@ -1,0 +1,44 @@
+.apply-component{
+  width: 832px !important;
+}
+.component-title{
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  color: #666666;
+  margin-bottom: 16px;
+}
+.component-search{
+  margin-bottom: 16px;
+  display: flex;
+  .search-input{
+    width: 320px;
+    margin-right: 16px;
+  }
+  .search-btn{
+    display: flex;
+    :global{
+      .ant-btn{
+        border-color: #305CD0;
+        color: #305CD0;
+      }
+      .ant-btn + .ant-btn{
+        margin-left: 16px;
+      }
+    }
+  }
+}
+.list{
+  margin: 0 -12px;
+  position: relative;
+  height:530px;
+  overflow: auto;
+}
+.item{
+  width: calc(50% - 24px);
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0 12px;
+}
+
+

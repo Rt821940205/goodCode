@@ -1,0 +1,51 @@
+.line-wrapper{
+  width: 499px;
+  &:hover .add-btn{
+    display: block;
+  }
+}
+.line{
+  height: 90px;
+  border-right: 1px dashed #333;
+  position: relative;
+  width: 35px;
+}
+.arrow::before{
+  content: "";
+  position: absolute;
+  top: calc(100% - 10px);
+  left: 100%;
+  border-width: 10px 5px 0px;
+  border-color: #999 transparent transparent;
+  border-style: solid;
+  transform: translateX(-50%);
+}
+.text{
+  position: absolute;
+  line-height: 22px;
+  color: #333;
+  width: max-content;
+  top:32px;
+  left:4px;
+  background: #c9def2;
+}
+
+.add-btn{
+  display: none;
+  position: absolute;
+  cursor: pointer;
+  font-size: 30px;
+  left: 100%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+}
+.add-btn-with-label{
+  bottom: 23px;
+  transform: translateX(-50%);
+}
+
+.bottom-add-btn{
+  font-size: 30px;
+  cursor: pointer;
+  margin-left: 19px;
+}

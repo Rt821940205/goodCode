@@ -1,0 +1,39 @@
+.modal-mask{
+  width: 352px !important;
+  // height: 360px;
+  position: absolute;
+  z-index: 999;
+  top: 0;
+  right: 700px;
+  padding: 16px;
+  background: #fff;
+  border: 1px solid #CCE0F2;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 0px 4px 4px 0px;
+  .modal-title{
+    padding-bottom: 16px;
+    font-weight: 400;
+    font-size: 16px;
+    color: #333333;
+    display: flex;
+  }
+  :global{
+    .ant-tree{
+      height: 500px;
+      overflow: auto;
+    }
+  }
+}
+.item-key{
+  color:#bbbbbb;
+  padding-left: 5px;
+  font-size: 6px;
+  display: none;
+}
+.search-value{
+  :global{
+    .site-tree-search-value{
+      color: #2d8cf0;
+    }
+  }
+}

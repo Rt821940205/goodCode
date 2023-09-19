@@ -1,0 +1,39 @@
+{
+  "data": [
+    {
+      "title": "邮件引擎",
+      "description": "提供简单的邮件收发功能",
+      "x-component-ver": "1.0.0",
+      "x-component-id": "eg_2c0c_mail_plugin",
+      "x-icon": "http://192.168.51.253:86/images/component/sh_cd39_rocket_mq_plugin.png"
+    },
+    {
+      "title": "你好引擎",
+      "description": "她会向你问好，同时她是一个引擎的开发示例，借助参考她的实现代码，你可通过简单几行代码快速实现一个功能引擎。",
+      "x-component-ver": "1.0.0",
+      "x-component-id": "eg_bc1b_hello_plugin",
+      "x-icon": "http://192.168.51.253:86/images/component/sh_cd39_rocket_mq_plugin.png"
+    },
+    {
+      "title": "CSV处理",
+      "description": "对CSV进行序列和反序列",
+      "x-component-ver": "1.0.0",
+      "x-component-id": "eg_c174_csv_plugin",
+      "x-icon": "http://192.168.51.253:86/images/component/sh_cd39_rocket_mq_plugin.png"
+    },
+    {
+      "title": "FTP引擎",
+      "description": "可以连接FTP服务器交换文件",
+      "x-component-ver": "1.0.0",
+      "x-component-id": "eg_cb7e_ftp_plugin",
+      "x-icon": "http://192.168.51.253:86/images/component/sh_cd39_rocket_mq_plugin.png"
+    },
+    {
+      "title": "文件组件",
+      "description": "对上传文件和磁盘文件进行读取和保存",
+      "x-component-ver": "1.0.0",
+      "x-component-id": "eg_fd98_file_plugin",
+      "x-icon": "http://192.168.51.253:86/images/component/sh_cd39_rocket_mq_plugin.png"
+    }
+  ]
+}

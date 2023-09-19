@@ -1,0 +1,131 @@
+@import '../../../../../styles/validator.less';
+
+// api 及 DataSource 表单上方显示的特殊样式
+.api-datasource-header {
+  width: auto;
+  height: 5px;
+  background-color: #108cee;
+  border-radius: 5px 5px 0 0;
+}
+
+.tpl_font_css {
+  color: gray;
+  font-size: 14px;
+}
+
+font {
+  color: red;
+  font-size: 12px;
+}
+
+.params-table {
+  min-width: 400px;
+}
+
+.result-table {
+  min-width: 600px;
+}
+.form-panel-wrapper {
+  border: 1px solid @gray-border-color !important;
+  .antd-Panel-body {
+    padding: 0;
+  }
+  .subtitle-wrapper,
+  .relation-wrapper {
+    height: 39px;
+    line-height: 39px;
+    padding-left: 8px;
+    color: #999;
+    font-size: 14px;
+  }
+  .filed-title {
+    border-left: 0;
+    padding-left: 8px;
+    color: @primary-color;
+    font-size: 12px;
+    .antd-Collapse-arrow:before {
+      border-color: @primary-color;
+    }
+  }
+  .field-wrapper {
+    color: @primary-color;
+    margin-bottom: 0;
+  }
+  .antd-Table-table {
+    border: 0;
+  }
+  .antd-Collapse-content {
+    padding: 0;
+  }
+  .antd-Table-table > tbody > tr.antd-Table-tr--odd,
+  .antd-Table-table > tbody > tr,
+  .antd-Table-table > tbody > tr:hover, .antd-Table-table > tbody > tr.is-hovered,
+  .antd-Table-table > tbody > tr:hover + tr,
+  .antd-Table-table > tbody > tr.is-hovered, + tr {
+    background: white;
+    color: #999;
+    border: 0;
+    box-shadow: none;
+  }
+  .antd-Table-table > tbody > tr > td:last-child, .antd-Table-table > tbody > tr > th:last-child {
+    text-align: right;
+  }
+  .antd-Table-table > tbody > tr > td, .antd-Table-table > tbody > tr > th {
+    padding: 4px 8px;
+  }
+}
+.title-wrapper .antd-Panel-title {
+  height: 56px;
+  line-height: 56px;
+  padding: 0 18px;
+  background: #F3F3F3;
+  border-bottom: 1px solid @gray-border-color;
+  font-size: 16px;
+  color: #333;
+  font-weight: 400;
+}
+.antd-Divider {
+  border: 0;
+  margin: 0;
+}
+.custom-field-wrapper {
+  .antd-Table-table > tbody > tr > td:last-child {
+    text-align: center !important;
+  }
+  .antd-Table-placeholder {
+    height: 62px;
+    font-size: 12px;
+    color: #999;
+  }
+}
+.relation-wrapper {
+  border-top: 1px solid @gray-border-color;
+  border-bottom: 1px solid @gray-border-color;
+}
+.btn-wrapper {
+  height: 64px;
+}
+.btn-operation {
+  color: @primary-color !important;
+  border-color: @gray-border-color !important;
+  border-radius: 4px;
+  margin: 0 24px;
+}
+.dialog-cancel-button {
+  .antd-Modal-footer .antd-Button--primary {
+    background: @primary-color !important;
+    border-color: @primary-color !important;
+    color: white !important;
+  }
+  .antd-Modal-footer .antd-Button,
+  .antd-Button--default:not(:disabled):not(.is-disabled):hover:active,
+  .antd-Button--default:not(:disabled):not(.is-disabled):hover,
+  .antd-Button--default:not(:disabled):not(.is-disabled):hover {
+    background: #E7E7E7;
+    color: #333;
+    border-color: @gray-border-color;
+  }
+  .antd-Modal-content.in {
+    width: 443px;
+  }
+}

@@ -1,0 +1,44 @@
+.card{
+  width: 992px;
+  height: 317px;
+  overflow: hidden;
+}
+.choose{
+  margin-right: 324px;
+  :global{
+    .ant-radio-button-wrapper{
+      background: #D9D9D9;
+      display: inline-flex;
+      align-items: center;
+      height: 26px;
+      padding: 0 10px;
+    }
+    .ant-radio-button-wrapper:first-child{
+      border-radius: 20px 0 0 20px;
+    }
+    .ant-radio-button-wrapper:last-child{
+      border-radius: 0 20px 20px 0;
+    }
+  }
+}
+.item{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 35px;
+  padding: 0 12px 0 3px;
+  background: rgba(64, 48, 208, 0.05);
+  border-radius: 2px;
+  margin:14px 4px;
+  cursor: pointer;
+  &:hover{
+    color: var(--primary);
+    background: rgba(48, 92, 208, 0.1);
+  }
+  &:first-child{
+    margin-top: 12px;
+  }
+  &:last-child{
+    margin-bottom: 12px;
+  }
+}

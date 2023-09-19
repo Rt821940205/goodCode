@@ -1,0 +1,61 @@
+.insert-node-wrapper{
+  width: 499px;
+  background: #fff;
+  border-radius: 8px;
+  box-sizing: border-box;
+  padding: 16px;
+  position: relative;
+}
+.line{
+  height: 33px;
+  border-right: 1px dashed #333;
+  position: relative;
+  width: 35px;
+}
+.choose{
+  border: 1px solid #305CD0;
+  border-radius: 4px;
+  color: var(--primary);
+  font-size: 16px;
+  margin: 8px 0 16px;
+}
+.excute-item{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 16px 24px 0 0;
+  cursor: pointer;
+  color: #666;
+  &:hover .icon-wrappper{
+    background: var(--primary);
+  }
+  &:hover{
+    color: var(--primary);
+  }
+  &:hover .icon{
+    color: white;
+  }
+}
+
+.icon-wrappper{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background: #F3F3F3;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+.icon{
+  color: #666;
+  font-size: 18px;
+  margin-right: 0;
+}
+.close{
+  position: absolute;
+  right: 16px;
+  top: 16px;
+  cursor: pointer;
+}

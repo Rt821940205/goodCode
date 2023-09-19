@@ -1,0 +1,247 @@
+{
+  "title": "编排组件",
+  "description": "演示文件上传后发送邮件通知（同时，如果是png文件，则保存到FTP服务器）示例",
+  "source": "",
+  "icon": "http://192.168.51.253:86/images/component/sh_cd39_rocket_mq_plugin.png",
+  "in": {
+    "title": "输入",
+    "properties": {
+      "file": {
+        "title": "上传文件",
+        "description": "上传文件",
+        "type": "string",
+        "format": "upload"
+      },
+      "subject": {
+        "type": "string",
+        "title": "邮件标题",
+        "value": "新文件上传通知"
+      }
+    }
+  },
+  "nodes": [
+    {
+      "nodeId": "1598264737429217282",
+      "name": "eg_fd98_file_plugin",
+      "action": "eg_engine_upload",
+      "actionTitle": "上传文件保存",
+      "title": "文件组件",
+      "description": "对上传文件和磁盘文件进行读取和保存",
+      "nodeType": "trigger",
+      "nextNodeId": "1616257580364013569",
+      "icon": "http://192.168.51.253:86/images/component/sh_cd39_rocket_mq_plugin.png",
+      "configId": "378160699509248000",
+      "configTitle": "文件组件配置",
+      "input": {
+        "title": "输入",
+        "properties": {
+          "file": {
+            "title": "上传文件",
+            "description": "上传文件",
+            "type": "string",
+            "format": "upload",
+            "value": [
+              {
+                "node": "in",
+                "key": "file"
+              }
+            ]
+          },
+          "name": {
+            "type": "string",
+            "title": "名称",
+            "description": "备注名称，仅特殊场景有效，如文件备注，如上传导入数据表时数据表备注",
+            "value": "上传的文件"
+          }
+        }
+      },
+      "output": {
+        "title": "输出",
+        "properties": {
+          "url": {
+            "title": "绝对对资源路径",
+            "description": "绝对对资源路径",
+            "type": "string",
+            "format": "url",
+            "value": "http://192.168.51.253:86/images/component/sh_cd39_rocket_mq_plugin.png"
+          },
+          "suffix": {
+            "type": "string",
+            "title": "文件扩展名"
+          },
+          "path": {
+            "type": "string",
+            "title": "保存路径"
+          }
+        }
+      },
+      "isComplete": "0",
+      "parentNodeId": null,
+      "children": []
+    },
+    {
+      "nodeId": "1616257580364013569",
+      "title": "条件处理",
+      "nodeType": "if",
+      "nextNodeId": "159826473742921729",
+      "nodeConfig": {
+        "title": "配置",
+        "description": "",
+        "properties": {
+          "if": {
+            "type": "array",
+            "title": "条件设置",
+            "description": "支持且、或条件处理",
+            "format": "x-case",
+            "required": true,
+            "minitems": 1,
+            "items": [
+              [
+                [
+                  {
+                    "uiData": {
+                      "operator": {
+                        "label": "(文本)包含",
+                        "value": "contain"
+                      }
+                    },
+                    "valueType": "string",
+                    "query": [
+                      {
+                        "node": "1598264737429217282",
+                        "key": "suffix"
+                      }
+                    ],
+                    "value": "png",
+                    "operator": "contain"
+                  }
+                ]
+              ]
+            ]
+          }
+        }
+      },
+      "children": [
+        {
+          "nodeId": "159826473742921728",
+          "parentId": "1616257580364013569",
+          "name": "eg_cb7e_ftp_plugin",
+          "action": "eg_cb7e_upload_action",
+          "actionTitle": "上传文件",
+          "title": "FTP组件",
+          "description": "可以连接FTP服务器交换文件",
+          "nodeType": "func",
+          "nextNodeId": null,
+          "icon": "http://192.168.51.253:86/images/component/sh_cd39_rocket_mq_plugin.png",
+          "configId": "378160699509248002",
+          "configTitle": "FTP配置",
+          "input": {
+            "title": "FTP上传文件输入配置",
+            "type": "object",
+            "properties": {
+              "ftpPath": {
+                "type": "string",
+                "title": "FTP文件路径",
+                "value": "demo"
+              },
+              "path": {
+                "type": "string",
+                "title": "上传文件磁盘路径",
+                "value": [
+                  {
+                    "node": "1598264737429217282",
+                    "key": "path"
+                  }
+                ]
+              }
+            }
+          },
+          "output": {
+            "title": "输出",
+            "properties": {
+              "path": {
+                "type": "string",
+                "title": "FTP文件路径"
+              }
+            }
+          },
+          "isComplete": "0",
+          "parentNodeId": null,
+          "children": []
+        }
+      ]
+    },
+    {
+      "nodeId": "159826473742921729",
+      "name": "eg_2c0c_mail_plugin",
+      "action": "eg_2c0c_send_action",
+      "actionTitle": "发邮件",
+      "title": "邮件引擎",
+      "description": "提供简单的邮件收发功能",
+      "nodeType": "func",
+      "nextNodeId": null,
+      "icon": "http://192.168.51.253:86/images/component/sh_cd39_rocket_mq_plugin.png",
+      "configId": "378160699509248003",
+      "configTitle": "邮箱配置",
+      "input": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "type": "string",
+            "title": "邮件内容",
+            "value": [
+              {
+                "node": "static",
+                "value": "上传文件网址:"
+              },
+              {
+                "node": "1598264737429217282",
+                "key": "url"
+              }
+            ],
+            "subject": {
+              "type": "string",
+              "title": "邮件标题",
+              "value": [
+                {
+                  "node": "in",
+                  "key": "subject"
+                }
+              ]
+            },
+            "to": {
+              "type": "string",
+              "title": "收件人",
+              "value": "lvjy@chinaoly.com"
+            }
+          },
+          "title": "发送邮件 入参"
+        },
+        "output": {
+          "type": "object",
+          "properties": {
+            "msg": {
+              "type": "string",
+              "title": "消息",
+              "description": "如果成功消息为success，如果失败，则是失败相关消息",
+              "default": "success"
+            },
+            "success": {
+              "type": "boolean",
+              "title": "发送是否成功",
+              "default": false
+            }
+          },
+          "title": "发送邮件结果"
+        },
+        "isComplete": "0",
+        "parentNodeId": null,
+        "children": []
+      }
+    },
+
+    {
+      "nodeId": "5a15ca8f-c689-4921-9a94-08e7c6e16648"
+    }
+  ]
+}

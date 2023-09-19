@@ -1,0 +1,96 @@
+.node{
+  position: absolute;
+}
+@squareHeight:80px;
+.square{
+  width: 80px;
+  height: @squareHeight;
+  position: relative;
+  margin:10px 4px 10px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: move;
+  .icon{
+    font-size: 48px;
+    margin: 0;
+  }
+  .hide-eye-wrapper{
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: #333;
+    border-radius: 4px;
+    bottom: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .hide-eye-icon{
+      margin-right: 0;
+      font-size: 14px;
+    }
+  }
+  .add{
+    display: none;
+    position: absolute;
+    font-size: 32px;
+    margin: 0;
+    top: 50%;
+    right: 0;
+    transform: translate(50%,-50%);
+    cursor: pointer;
+    z-index: 2;
+  }
+  &:hover .add{
+    display: block;
+  }
+  .contextmenu{
+    position: absolute;
+    top:100%;
+    right: 0;
+    transform: translate(100%,-24%);
+    background: white;
+    z-index: 4;
+  }
+}
+.open-operate{
+  display: flex;
+  align-items: center;
+  .line{
+    width: 28px;
+    height: 2px;
+    background: #626262;
+  }
+  .minus{
+    font-size: 24px;
+    margin: 0;
+    cursor: pointer;
+  }
+  .count{
+    width: 32px;
+    height: 32px;
+    background: rgba(255, 158, 24, 0.2);
+    border: 1px solid #FF9E18;
+    border-radius: 20px;
+    color: #333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.hide{
+  opacity: 0.6;
+}
+
+.name{
+  position: absolute;
+  width: 100px;
+  color: #333;
+  text-align: center;
+}
+
+.active{
+  box-shadow:0 0 30px #305cd0
+}

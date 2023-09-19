@@ -1,0 +1,53 @@
+// .drawer-common
+.execute {
+  top: 60px;
+  :global {
+    .ant-drawer-content-wrapper {
+      width: 504px !important;
+    }
+    .ant-drawer-body {
+      padding: 0;
+      display: flex;
+    }
+  }
+  .drawer-wrapper{
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    margin-bottom: 64px;
+  }
+  .title {
+    padding: 16px 24px;
+    color: #333333;
+    font-weight: 400;
+    font-size: 16px;
+    background: #f3f3f3;
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    overflow: hidden;
+    .content-form{
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      overflow: auto;
+      padding: 16px;
+    }
+  }
+
+  .footer{
+    width: 504px;
+    height: 64px;
+    background: #FFFFFF;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    border-top: 1px solid #E7E7E7;
+    position: absolute;
+    bottom: 0;
+    padding-right: 24px;
+  }
+}

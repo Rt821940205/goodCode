@@ -1,0 +1,180 @@
+{
+  "info": {
+    "title": "你好引擎",
+    "description": "她会向你问好，同时她是一个引擎的开发示例，借助参考她的实现代码，你可通过简单几行代码快速实现一个功能引擎。",
+    "x-component-ver": "1.0.0",
+    "x-component-id": "eg_bc1b_hello_plugin"
+  },
+  "config": {
+    "type": "object",
+    "properties": {
+      "suffix": {
+        "type": "string",
+        "title": "问候结束标点符号",
+        "default": "！"
+      }
+    },
+    "title": "你好配置"
+  },
+  "executor": {
+    "x-executor-id": "eg_bc1b_hello_plugin",
+    "x-origin-ver": "1.0.0",
+    "x-executor-group": "transform"
+  },
+  "actions": [
+    {
+      "description": "将对输入的名字反馈 你好，例如输入世界，将反馈 你好世界",
+      "summary": "你好世界",
+      "x-action-id": "HelloAction",
+      "operationId": "eg_bc1b_hello_action",
+      "in": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "title": "名字",
+            "description": "要打招呼的名字",
+            "default": "",
+            "maxLength": 256
+          }
+        },
+        "title": "输入参数"
+      },
+      "out": {
+        "type": "object",
+        "properties": {
+          "result": {
+            "type": "string",
+            "title": "问候结果",
+            "description": "得到 你好世界! 类似的结果，最终由具体行为确定",
+            "maxLength": 256
+          }
+        },
+        "title": "你好世界 输出结果"
+      }
+    },
+    {
+      "description": "将对输入的名字反馈 HI，例如输入世界，将反馈 HI世界，本行为演示1个引擎可以拥有多个不同的能力，本引擎至少拥有问候 你好世界和Hi世界的能力",
+      "summary": "HI世界",
+      "x-action-id": "HiAction",
+      "operationId": "eg_bc1b_hi_action",
+      "in": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "title": "要问候的名字",
+            "default": ""
+          }
+        },
+        "title": "输入参数",
+        "description": "本示例演示不同的能力行为均可拥有自己的输入参数，区别于你好世界 能力的HelloIn输入，HI世界反输入是HiIn"
+      },
+      "out": {
+        "type": "object",
+        "properties": {
+          "result": {
+            "type": "string",
+            "title": "问候结果",
+            "description": "得到 你好世界! 类似的结果，最终由具体行为确定",
+            "maxLength": 256
+          }
+        },
+        "title": "你好世界 输出结果"
+      }
+    },
+    {
+      "description": "输出结果：你好世界原型! 有别于默认输出后转译为BizModel实例不同，如果定义了类型为Map，那么输出结果为原始输出类型，本行为输出将保留为HelloOut",
+      "summary": "你好原型输出",
+      "x-action-id": "MapAction",
+      "operationId": "eg_bc1b_map_action",
+      "in": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "title": "名字",
+            "description": "要打招呼的名字",
+            "default": "",
+            "maxLength": 256
+          }
+        },
+        "title": "输入参数"
+      },
+      "out": {
+        "type": "object",
+        "properties": {
+          "result": {
+            "type": "string",
+            "title": "问候结果",
+            "description": "得到 你好世界! 类似的结果，最终由具体行为确定",
+            "maxLength": 256
+          }
+        },
+        "title": "你好世界 输出结果"
+      }
+    },
+    {
+      "description": "本示例演示，如果行为定义了类型为存储，那么每次的执行结果将自动自动保存，注意自动保存的数据表可以是自动生成，可以保存到提定的现有表中，目前目标表在引擎开发时确定，不能通过配置修改",
+      "summary": "你好世界 保存",
+      "x-action-id": "SaveAction",
+      "operationId": "eg_bc1b_save_action",
+      "in": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "title": "名字",
+            "description": "要打招呼的名字",
+            "default": "",
+            "maxLength": 256
+          }
+        },
+        "title": "输入参数"
+      },
+      "out": {
+        "type": "object",
+        "properties": {
+          "result": {
+            "type": "string",
+            "title": "问候结果",
+            "description": "得到 你好世界! 类似的结果，最终由具体行为确定",
+            "maxLength": 256
+          }
+        },
+        "title": "你好世界 输出结果"
+      }
+    },
+    {
+      "description": "本引擎主要演示区别于未自定义的行为标识带有随机码不同，指定行为名的 标识不带有随机码",
+      "summary": "指定行为名",
+      "x-action-id": "OriginAction",
+      "operationId": "staticHelloAction",
+      "in": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "title": "名字",
+            "description": "要打招呼的名字",
+            "default": "",
+            "maxLength": 256
+          }
+        },
+        "title": "输入参数"
+      },
+      "out": {
+        "type": "object",
+        "properties": {
+          "result": {
+            "type": "string",
+            "title": "问候结果",
+            "description": "得到 你好世界! 类似的结果，最终由具体行为确定",
+            "maxLength": 256
+          }
+        },
+        "title": "你好世界 输出结果"
+      }
+    }
+  ]
+}

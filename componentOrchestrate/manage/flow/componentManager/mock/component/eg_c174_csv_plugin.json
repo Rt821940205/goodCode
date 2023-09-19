@@ -1,0 +1,91 @@
+{
+  "info": {
+    "title": "CSV处理",
+    "description": "对CSV进行序列和反序列",
+    "x-component-ver": "1.0.0",
+    "x-component-id": "eg_c174_csv_plugin"
+  },
+  "config": {
+    "type": "object",
+    "properties": {
+      "delimiter": {
+        "type": "string",
+        "title": "数据分隔符",
+        "description": "默认分隔符,只支持单个字符"
+      },
+      "formatName": {
+        "type": "string",
+        "title": "格式",
+        "description": "默认为csv，暂只支持CSV"
+      }
+    },
+    "title": "组件配置"
+  },
+  "executor": {
+    "x-executor-id": "eg_c174_csv_plugin",
+    "x-origin-ver": "1.0.0",
+    "x-executor-group": "数据转换"
+  },
+  "actions": [
+    {
+      "description": "将输入的List序列数据转为CSV文本或OutputStream",
+      "summary": "Csv转文本",
+      "x-action-id": "MarshalCsvAction",
+      "operationId": "eg_c174_marshal_csv_action",
+      "in": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "title": "数据"
+          },
+          "outputType": {
+            "type": "string",
+            "title": "期望导出格式",
+            "description": "支持ORIGIN, PLAIN, BASE64, BYTES默认为ORIGIN原格式",
+            "default": ""
+          }
+        },
+        "title": "输入"
+      },
+      "out": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "title": "数据"
+          }
+        },
+        "title": "输出"
+      }
+    },
+    {
+      "description": "输出ArrayList数据",
+      "summary": "CSV对象化",
+      "x-action-id": "UnmarshalCsvAction",
+      "operationId": "eg_c174_unmarshal_csv_action",
+      "in": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "title": "数据"
+          },
+          "outputType": {
+            "type": "string",
+            "title": "期望导出格式",
+            "description": "支持ORIGIN, PLAIN, BASE64, BYTES默认为ORIGIN原格式",
+            "default": ""
+          }
+        },
+        "title": "输入"
+      },
+      "out": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "title": "数据"
+          }
+        },
+        "title": "输出"
+      }
+    }
+  ]
+}

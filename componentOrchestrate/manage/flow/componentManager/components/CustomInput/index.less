@@ -1,0 +1,84 @@
+.edit-div{
+  position: relative;
+  outline: none;
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
+  min-width: 100px;
+  min-height: 28px;
+  border: 1px solid #d8e1eb;
+  border-radius: 6px;
+  margin: 0 auto;
+  padding: 0 6px;
+  font-size: 12px;
+  cursor: unset;
+  background: #fff;
+  transition: all 0.3s ease 0s;
+  line-height: 28px;
+  display: flex;
+  flex-wrap: wrap;
+
+ 
+  .mr{
+    margin: 2px 4px;
+  }
+  .variable{
+    background: #E7E7E7;
+    border-radius: 3px;
+    padding: 0 6px;
+    display: flex;
+    font-size: 12px;
+    margin: 0;
+    color: #333;
+    align-items: center;
+    .overflow{
+      max-width: 132px;
+      overflow:hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+  }
+
+  .svgicon{
+    margin-right: 0;
+  }
+
+  
+  
+}
+
+.read-only{
+  border-radius:0;
+  padding: 0;
+}
+
+
+.no-edit-div{
+  border: none;
+  background: transparent;
+}
+
+.input-style{
+  flex: 1;
+  display: flex;
+  :global{
+    .ant-input:focus, .ant-input-focused {
+      border: none;
+      box-shadow: none;
+      outline: 0;
+    }
+    .ant-input{
+      box-shadow: none;
+      border: none;
+      flex: 1;
+      outline: none;
+    }
+    .ant-input-status-error:not(.ant-input-disabled):not(.ant-input-borderless).ant-input, .ant-input-status-error:not(.ant-input-disabled):not(.ant-input-borderless).ant-input:hover{
+      box-shadow: none;
+    }
+  }
+  
+}
+
+.warn{
+  color: red;
+}

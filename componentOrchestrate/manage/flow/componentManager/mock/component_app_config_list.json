@@ -1,0 +1,30 @@
+{
+  "data": [
+    {
+      "id": "1598264737303388161",
+      "x-component-id": "eg_bc1b_hello_plugin",
+      "title": "你好世界！私人配置1",
+      "description": "我是私人配置1",
+      "properties": {
+        "suffix": {
+          "type": "string",
+          "title": "问候结束标点符号",
+          "default": "！"
+        }
+      }
+    },
+    {
+      "id": "1598264737303388162",
+      "x-component-id": "eg_bc1b_hello_plugin",
+      "title": "你好世界！私人配置2",
+      "description": "我是私人配置2",
+      "properties": {
+        "suffix": {
+          "type": "string",
+          "title": "问候结束标点符号",
+          "default": "？"
+        }
+      }
+    }
+  ]
+}

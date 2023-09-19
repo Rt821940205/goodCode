@@ -1,0 +1,124 @@
+@import '/src/styles/reset.less';
+.description_content {
+  height: 66px;
+  overflow: hidden;
+  color: #666;
+  font-size: 14px;
+  line-height: 22px;
+}
+
+.bottom_container {
+  color: #333;
+  font-size: 14px;
+  line-height: 22px;
+}
+.bottom_container.version {
+  color: #666;
+}
+.antd-Card-actions {
+  border-top: 1px solid #ebebeb;
+}
+.antd-Card-actions a {
+  border: none;
+}
+
+.noHand:hover {
+  background-color: #fff !important;
+  cursor: default !important;
+}
+
+.action_btn_color {
+  color: #999 !important;
+}
+.action_btn_color:first-child {
+  border-bottom-left-radius: 8px;
+}
+.action_btn_color:last-child {
+  border-bottom-right-radius: 8px;
+}
+.label {
+  padding: 2px 8px;
+}
+.label-success {
+  background: rgb(14 208 33 / 80%);
+}
+.antd-Card--link {
+  margin-bottom: 0;
+}
+.custom-card-item {
+  border: 1px solid rgba(0,0,0,.2);
+  border-radius: 8px;
+}
+.add-template-card-item {
+  border: 1px dashed #305CD0;
+  background: #F4F7FC;
+  border-radius: 8px;
+}
+.search-bar {
+  width: 320px;
+  height: 32px;
+}
+.search-bar .antd-SearchBox.is-active {
+  width: 320px;
+  height: 32px;
+  border: 1px solid #305cd0;
+  border-radius: 4px;
+}
+.search-bar .antd-SearchBox-searchBtn {
+  color: #305cd0;
+}
+.add-template-wrapper {
+  text-align: center;
+  .add-text {
+    margin-top: 30px;
+    font-size: 18px;
+  }
+}
+.add-template-img {
+  .antd-Image {
+    border: 0;
+  }
+  .antd-Image-thumb {
+    width: auto;
+    height: auto;
+  }
+  .antd-Image-image {
+    width: 152px !important;
+    height: 129px !important;
+  }
+}
+// .antd-Card-footer-wrapper {
+//   margin: 0;
+// }
+
+
+@media (min-width: 576px) {
+  .card-wrapper {
+    .antd-Grid-col--sm3 {
+      // width: 330px;
+      flex: none;
+      max-width: none;
+    }
+    .antd-Grid {
+      justify-content: center;
+    }
+  }
+}
+.card-wrapper {
+  .antd-Grid {
+    display: grid;
+    grid-template-columns: repeat(4, 330px);
+    grid-row-gap: 24px;
+  }
+  .antd-Cards-toolbar {
+    justify-content: center;
+  }
+  .antd-Crud-toolbar {
+    max-width: 1308px;
+  }
+}
+
+.hello-class {
+  position: relative;
+  left: 30px
+}
